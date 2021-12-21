@@ -9,10 +9,7 @@ fn find_index<T: PartialEq + Copy>(vec: &Vec<T>, search_target: T) -> usize {
 
 #[snippet("a-z")]
 fn a_z_vec_char() -> Vec<char> {
-    vec![
-        'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r',
-        's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
-    ]
+    (b'a'..=b'z').map(|b| b as char).collect()
 }
 
 #[test]
@@ -35,4 +32,26 @@ fn sum(vec: Vec<u32>) -> u32 {
 #[test]
 fn test_sum() {
     assert_eq!(sum(vec![1, 2, 3]), 6);
+}
+
+#[snippet("digit sum")]
+fn digit_sum(s: &String) -> u32 {
+    s.chars().map(|c| c.to_digit(10).unwrap()).sum()
+}
+
+#[test]
+fn test_digit_sum() {
+    let result = digit_sum(&String::from("123456789"));
+    assert_eq!(result, 45);
+}
+
+#[snippet("string_to_vec_u32")]
+fn string_to_vec_u32(s: &String) -> Vec<u32> {
+    s.chars().map(|c| c.to_digit(10).unwrap()).collect()
+}
+
+#[test]
+fn test_string_to_vec_u32() {
+    let result = string_to_vec_u32(&String::from("12345"));
+    assert_eq!(result, vec![1, 2, 3, 4, 5]);
 }
