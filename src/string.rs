@@ -29,3 +29,21 @@ fn test_interleave_vec_char() {
     let result = interleave_vec_char(a, b);
     assert_eq!(result, vec!['a', 'd', 'b', 'e', 'c', 'f']);
 }
+
+#[snippet("swap")]
+fn swap_char(a: &String, b: &String, idx: usize) -> (String, String) {
+    let mut av: Vec<char> = a.chars().collect();
+    let mut bv: Vec<char> = b.chars().collect();
+    std::mem::swap(&mut av[idx], &mut bv[idx]);
+    let new_a: String = av.into_iter().collect();
+    let new_b: String = bv.into_iter().collect();
+    (new_a, new_b)
+}
+
+#[test]
+fn test_swap_char() {
+    let a = String::from("hoge");
+    let b = String::from("Hello");
+    let result = swap_char(&a, &b, 2);
+    assert_eq!(result, (String::from("hole"), String::from("Heglo")));
+}
