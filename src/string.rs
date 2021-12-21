@@ -30,6 +30,7 @@ fn test_interleave_vec_char() {
     assert_eq!(result, vec!['a', 'd', 'b', 'e', 'c', 'f']);
 }
 
+// 2つの文字列のidx番目を交換する
 #[snippet("swap")]
 fn swap_char(a: &String, b: &String, idx: usize) -> (String, String) {
     let mut av: Vec<char> = a.chars().collect();
@@ -46,4 +47,30 @@ fn test_swap_char() {
     let b = String::from("Hello");
     let result = swap_char(&a, &b, 2);
     assert_eq!(result, (String::from("hole"), String::from("Heglo")));
+}
+
+// Vec<char>からStringに変換
+#[snippet("Vec<char> to string")]
+fn vec_char_to_string(vec: &Vec<char>) -> String {
+    vec.into_iter().collect()
+}
+
+#[test]
+fn test_vec_char_to_string() {
+    let vec = vec!['a', 'b', 'c', 'd'];
+    let result = vec_char_to_string(&vec);
+    assert_eq!(result, String::from("abcd"));
+}
+
+// 文字列の各文字を昇順でソート
+#[snippet("sort chars of String")]
+fn sort_chars_of_string(s: &String) -> Vec<char> {
+    s.chars().sorted().collect_vec()
+}
+
+#[test]
+fn test_sort_chars_of_string() {
+    let s = String::from("dfcbae");
+    let result = sort_chars_of_string(&s);
+    assert_eq!(result, vec!['a', 'b', 'c', 'd', 'e', 'f']);
 }

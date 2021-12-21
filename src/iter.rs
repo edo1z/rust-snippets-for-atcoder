@@ -26,7 +26,6 @@ fn test_find_index() {
     assert_eq!(result_num, 2);
 }
 
-
 // 合計
 #[snippet("sum")]
 fn sum(vec: Vec<u32>) -> u32 {
@@ -60,4 +59,16 @@ fn string_to_vec_u32(s: &String) -> Vec<u32> {
 fn test_string_to_vec_u32() {
     let result = string_to_vec_u32(&String::from("12345"));
     assert_eq!(result, vec![1, 2, 3, 4, 5]);
+}
+
+// rangeからVec<usize>を作成
+#[snippet("create_vec_by_range")]
+fn create_vec_by_rane(start: usize, end: usize) -> Vec<usize> {
+    (start..end).collect()
+}
+
+#[test]
+fn test_create_vec_by_range() {
+    let result = create_vec_by_rane(1, 5);
+    assert_eq!(result, vec![1, 2, 3, 4]);
 }

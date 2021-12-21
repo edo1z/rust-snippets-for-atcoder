@@ -17,8 +17,10 @@ fn test_typename() {
 // 実行時間の計測
 #[snippet("exec_time")]
 use std::time::Instant;
-fn exec_time_start() -> Instant { Instant::now() }
-fn exec_time_end(start:Instant) {
+fn exec_time_start() -> Instant {
+    Instant::now()
+}
+fn exec_time_end(start: Instant) {
     let end = start.elapsed();
     let sec = end.as_secs();
     let subsec = end.subsec_nanos() / 1_000_000;

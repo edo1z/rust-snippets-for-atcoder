@@ -1,0 +1,128 @@
+{
+  "Vec<char> to string": {
+    "prefix": "Vec<char> to string",
+    "body": [
+      "fn vec_char_to_string(vec: &Vec<char>) -> String {",
+      "    vec.into_iter().collect()",
+      "}"
+    ]
+  },
+  "a-z": {
+    "prefix": "a-z",
+    "body": [
+      "fn a_z_vec_char() -> Vec<char> {",
+      "    (b'a'..=b'z').map(|b| b as char).collect()",
+      "}"
+    ]
+  },
+  "char_to_u32": {
+    "prefix": "char_to_u32",
+    "body": [
+      "fn char_to_u32(c: Vec<char>) -> u32 {",
+      "    let a = c[0].to_digit(10).unwrap();",
+      "    let b = c[1].to_digit(10).unwrap();",
+      "    a * b",
+      "}"
+    ]
+  },
+  "create_vec_by_range": {
+    "prefix": "create_vec_by_range",
+    "body": [
+      "fn create_vec_by_rane(start: usize, end: usize) -> Vec<usize> {",
+      "    (start..end).collect()",
+      "}"
+    ]
+  },
+  "digit sum": {
+    "prefix": "digit sum",
+    "body": [
+      "fn digit_sum(s: &String) -> u32 {",
+      "    s.chars().map(|c| c.to_digit(10).unwrap()).sum()",
+      "}"
+    ]
+  },
+  "exec_time": {
+    "prefix": "exec_time",
+    "body": [
+      "use std::time::Instant;"
+    ]
+  },
+  "find_index": {
+    "prefix": "find_index",
+    "body": [
+      "fn find_index<T: PartialEq + Copy>(vec: &Vec<T>, search_target: T) -> usize {",
+      "    vec.iter().position(|&x| x == search_target).unwrap()",
+      "}"
+    ]
+  },
+  "interleave": {
+    "prefix": "interleave",
+    "body": [
+      "fn interleave_vec_char(a: Vec<char>, b: Vec<char>) -> Vec<char> {",
+      "    a.into_iter().interleave(b).collect()",
+      "}"
+    ]
+  },
+  "sort chars of String": {
+    "prefix": "sort chars of String",
+    "body": [
+      "fn sort_chars_of_string(s: &String) -> Vec<char> {",
+      "    s.chars().sorted().collect_vec()",
+      "}"
+    ]
+  },
+  "string_to_vec_u32": {
+    "prefix": "string_to_vec_u32",
+    "body": [
+      "fn string_to_vec_u32(s: &String) -> Vec<u32> {",
+      "    s.chars().map(|c| c.to_digit(10).unwrap()).collect()",
+      "}"
+    ]
+  },
+  "sum": {
+    "prefix": "sum",
+    "body": [
+      "fn sum(vec: Vec<u32>) -> u32 {",
+      "    vec.iter().sum()",
+      "}"
+    ]
+  },
+  "swap": {
+    "prefix": "swap",
+    "body": [
+      "fn swap_char(a: &String, b: &String, idx: usize) -> (String, String) {",
+      "    let mut av: Vec<char> = a.chars().collect();",
+      "    let mut bv: Vec<char> = b.chars().collect();",
+      "    std::mem::swap(&mut av[idx], &mut bv[idx]);",
+      "    let new_a: String = av.into_iter().collect();",
+      "    let new_b: String = bv.into_iter().collect();",
+      "    (new_a, new_b)",
+      "}"
+    ]
+  },
+  "typename": {
+    "prefix": "typename",
+    "body": [
+      "fn typename<T>(_: T) -> &'static str {",
+      "    std::any::type_name::<T>()",
+      "}"
+    ]
+  },
+  "unique_chars": {
+    "prefix": "unique_chars",
+    "body": [
+      "fn string_to_hashset_char(s: &String) -> HashSet<char> {",
+      "    let vec: Vec<char> = s.clone().chars().collect();",
+      "    vec.into_iter().collect()",
+      "}"
+    ]
+  },
+  "unique_strings": {
+    "prefix": "unique_strings",
+    "body": [
+      "fn vec_string_to_hashset(words: &Vec<String>) -> HashSet<String> {",
+      "    words.clone().into_iter().collect()",
+      "}"
+    ]
+  }
+}
