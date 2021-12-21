@@ -1,19 +1,18 @@
 #![cfg_attr(debug_assertions, allow(dead_code, unused_imports))]
 use cargo_snippet::snippet;
-#[snippet(include = "interleave")]
 use itertools::Itertools;
 
 // charを数値とみなして計算する
 #[snippet("char_to_u32")]
-fn char_to_u32(c:Vec<char>) -> u32 {
+fn char_to_u32(c: Vec<char>) -> u32 {
     let a = c[0].to_digit(10).unwrap();
     let b = c[1].to_digit(10).unwrap();
-    a*b
+    a * b
 }
 
 #[test]
 fn test_char_to_u32() {
-    let result = char_to_u32(vec!['3','5']);
+    let result = char_to_u32(vec!['3', '5']);
     assert_eq!(result, 15);
 }
 
