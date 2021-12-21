@@ -4,10 +4,12 @@ use itertools::Itertools;
 
 // 階乗
 #[snippet("factorial - 階乗")]
+#[snippet(include = "_factorial")]
 fn factorial(n: usize) -> usize {
     let mut memo: Vec<usize> = vec![1; n + 1];
     _factorial(n, &mut memo)
 }
+#[snippet]
 fn _factorial(n: usize, memo: &mut Vec<usize>) -> usize {
     if n < 2 || memo[n] > 1 {
         memo[n]
