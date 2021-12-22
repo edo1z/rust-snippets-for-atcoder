@@ -1,6 +1,6 @@
 #![cfg_attr(debug_assertions, allow(dead_code, unused_imports))]
 use cargo_snippet::snippet;
-use std::io::{self, BufRead, Error, Read, Write};
+use std::io;
 use std::str::FromStr;
 
 #[snippet("get_input-標準入力を1行読み込む")]
@@ -13,11 +13,6 @@ fn get_input<T: FromStr>() -> Vec<T> {
         .map(|x| x.parse().ok().unwrap())
         .collect()
 }
-#[test]
-fn test_get_input() {
-    // let s: Vec<String> = get_input();
-    // assert_eq!(s, vec!["ho".to_string(), "ge".to_string()]);
-}
 
 #[snippet("get_input-標準入力を複数行読み込む")]
 #[snippet(include = "get_input-標準入力を1行読み込む")]
@@ -28,6 +23,12 @@ fn get_input_lines<T: FromStr>(line_len: usize) -> Vec<Vec<T>> {
         vec.push(v);
     }
     vec
+}
+
+#[test]
+fn test_get_input() {
+    // let s: Vec<String> = get_input();
+    // assert_eq!(s, vec!["ho".to_string(), "ge".to_string()]);
 }
 
 #[test]
