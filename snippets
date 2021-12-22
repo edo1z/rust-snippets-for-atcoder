@@ -93,6 +93,24 @@
       "}"
     ]
   },
+  "lower_bound - 二分探索": {
+    "prefix": "lower_bound - 二分探索",
+    "body": [
+      "fn lower_bound(v: &Vec<usize>, s: usize) -> usize {",
+      "    let mut left = 0;",
+      "    let mut right = v.len();",
+      "    while left != right {",
+      "        let mid = (left + right) / 2;",
+      "        if s > v[mid] {",
+      "            left = mid + 1;",
+      "        } else {",
+      "            right = mid;",
+      "        }",
+      "    }",
+      "    left",
+      "}"
+    ]
+  },
   "sort chars of String": {
     "prefix": "sort chars of String",
     "body": [
@@ -152,6 +170,24 @@
     "body": [
       "fn vec_string_to_hashset(words: &Vec<String>) -> HashSet<String> {",
       "    words.clone().into_iter().collect()",
+      "}"
+    ]
+  },
+  "upper_bound - 二分探索": {
+    "prefix": "upper_bound - 二分探索",
+    "body": [
+      "fn upper_bound(v: &Vec<usize>, s: usize) -> usize {",
+      "    let mut left = 0;",
+      "    let mut right = v.len();",
+      "    while left != right {",
+      "        let mid = (left + right) / 2;",
+      "        if s < v[mid] {",
+      "            right = mid;",
+      "        } else {",
+      "            left = mid + 1;",
+      "        }",
+      "    }",
+      "    left",
       "}"
     ]
   }
