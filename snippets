@@ -85,6 +85,42 @@
       "}"
     ]
   },
+  "get_input-標準入力を1行読み込む": {
+    "prefix": "get_input-標準入力を1行読み込む",
+    "body": [
+      "fn get_input<T: FromStr>() -> Vec<T> {",
+      "    let mut buffer = String::new();",
+      "    io::stdin().read_line(&mut buffer).ok();",
+      "    buffer",
+      "        .trim()",
+      "        .split_whitespace()",
+      "        .map(|x| x.parse().ok().unwrap())",
+      "        .collect()",
+      "}"
+    ]
+  },
+  "get_input-標準入力を複数行読み込む": {
+    "prefix": "get_input-標準入力を複数行読み込む",
+    "body": [
+      "fn get_input<T: FromStr>() -> Vec<T> {",
+      "    let mut buffer = String::new();",
+      "    io::stdin().read_line(&mut buffer).ok();",
+      "    buffer",
+      "        .trim()",
+      "        .split_whitespace()",
+      "        .map(|x| x.parse().ok().unwrap())",
+      "        .collect()",
+      "}",
+      "fn get_input_lines<T: FromStr>(line_len: usize) -> Vec<Vec<T>> {",
+      "    let mut vec: Vec<Vec<T>> = vec![];",
+      "    for _ in 0..line_len {",
+      "        let v: Vec<T> = get_input();",
+      "        vec.push(v);",
+      "    }",
+      "    vec",
+      "}"
+    ]
+  },
   "interleave": {
     "prefix": "interleave",
     "body": [
