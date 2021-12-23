@@ -200,6 +200,14 @@
       "}"
     ]
   },
+  "permutations-順列全列挙": {
+    "prefix": "permutations-順列全列挙",
+    "body": [
+      "fn permutaions(start: usize, end: usize, num: usize) -> Vec<Vec<usize>> {",
+      "    (start..end).permutations(num).collect()",
+      "}"
+    ]
+  },
   "sort chars of String": {
     "prefix": "sort chars of String",
     "body": [
@@ -277,6 +285,20 @@
       "        }",
       "    }",
       "    left",
+      "}"
+    ]
+  },
+  "進数変換": {
+    "prefix": "進数変換",
+    "body": [
+      "fn convert_digits(num: i64, digit: usize) -> String {",
+      "    match digit {",
+      "        2 => format!(\"{:b}\", num),",
+      "        8 => format!(\"{:o}\", num),",
+      "        10 => format!(\"{}\", num),",
+      "        16 => format!(\"{:x}\", num),",
+      "        _ => format!(\"{}\", num),",
+      "    }",
       "}"
     ]
   }
