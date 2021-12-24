@@ -1,6 +1,6 @@
 #![cfg_attr(debug_assertions, allow(dead_code, unused_imports))]
 use cargo_snippet::snippet;
-use itertools::Itertools;
+use itertools::{chain, iproduct, iterate, izip, Itertools};
 
 // 検索して存在したらindexを返す
 #[snippet("find_index")]
@@ -71,4 +71,29 @@ fn create_vec_by_rane(start: usize, end: usize) -> Vec<usize> {
 fn test_create_vec_by_range() {
     let result = create_vec_by_rane(1, 5);
     assert_eq!(result, vec![1, 2, 3, 4]);
+}
+
+#[snippet]
+fn iproduct_sample() -> Vec<(usize, usize)> {
+    iproduct!(0..2, 0..2).collect()
+}
+#[test]
+fn test_iproduct_test() {
+    let result = iproduct_sample();
+    assert_eq!(result[0], (0, 0));
+    assert_eq!(result[1], (0, 1));
+    assert_eq!(result[2], (1, 0));
+    assert_eq!(result[3], (1, 1));
+}
+
+#[snippet]
+fn tuple_combinations_sample() -> Vec<(usize, usize)> {
+    (0..3).tuple_combinations().collect()
+}
+#[test]
+fn test_tuple_combinations() {
+    let result = tuple_combinations_sample();
+    assert_eq!(result[0], (0, 1));
+    assert_eq!(result[1], (0, 2));
+    assert_eq!(result[2], (1, 2));
 }

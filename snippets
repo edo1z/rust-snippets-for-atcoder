@@ -207,6 +207,14 @@
       "}"
     ]
   },
+  "iproduct_sample": {
+    "prefix": "iproduct_sample",
+    "body": [
+      "fn iproduct_sample() -> Vec<(usize, usize)> {",
+      "    iproduct!(0..2, 0..2).collect()",
+      "}"
+    ]
+  },
   "lower_bound - 二分探索": {
     "prefix": "lower_bound - 二分探索",
     "body": [
@@ -267,6 +275,14 @@
       "    let new_a: String = av.into_iter().collect();",
       "    let new_b: String = bv.into_iter().collect();",
       "    (new_a, new_b)",
+      "}"
+    ]
+  },
+  "tuple_combinations_sample": {
+    "prefix": "tuple_combinations_sample",
+    "body": [
+      "fn tuple_combinations_sample() -> Vec<(usize, usize)> {",
+      "    (0..3).tuple_combinations().collect()",
       "}"
     ]
   },
