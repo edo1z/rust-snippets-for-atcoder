@@ -85,6 +85,23 @@
       "}"
     ]
   },
+  "_fibo": {
+    "prefix": "_fibo",
+    "body": [
+      "fn _fibo(n: usize, memo: &mut Vec<usize>) -> usize {",
+      "    if n == 0 {",
+      "        0",
+      "    } else if n == 1 {",
+      "        1",
+      "    } else if memo[n] > 0 {",
+      "        memo[n]",
+      "    } else {",
+      "        memo[n] = _fibo(n - 1, memo) + _fibo(n - 2, memo);",
+      "        memo[n]",
+      "    }",
+      "}"
+    ]
+  },
   "a-z": {
     "prefix": "a-z",
     "body": [
@@ -156,6 +173,27 @@
       "fn factorial(n: usize) -> usize {",
       "    let mut memo: Vec<usize> = vec![1; n + 1];",
       "    _factorial(n, &mut memo)",
+      "}"
+    ]
+  },
+  "fibo-フィボナッチ数列": {
+    "prefix": "fibo-フィボナッチ数列",
+    "body": [
+      "fn _fibo(n: usize, memo: &mut Vec<usize>) -> usize {",
+      "    if n == 0 {",
+      "        0",
+      "    } else if n == 1 {",
+      "        1",
+      "    } else if memo[n] > 0 {",
+      "        memo[n]",
+      "    } else {",
+      "        memo[n] = _fibo(n - 1, memo) + _fibo(n - 2, memo);",
+      "        memo[n]",
+      "    }",
+      "}",
+      "fn fibo(n: usize) -> usize {",
+      "    let mut memo = vec![0; n + 1];",
+      "    _fibo(n, &mut memo)",
       "}"
     ]
   },
