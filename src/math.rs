@@ -55,3 +55,20 @@ fn test_from_str_radix() {
     assert_eq!(from_str_radix(&String::from("100"), 16), 256);
     assert_eq!(from_str_radix(&String::from("400"), 8), 256);
 }
+
+#[snippet("GCD-ユークリッドの互除法")]
+fn gcd(m: usize, n: usize) -> usize {
+    if n == 0 {
+        m
+    } else {
+        gcd(n, m % n)
+    }
+}
+#[test]
+fn test_gcd() {
+    assert_eq!(gcd(9, 6), 3);
+    assert_eq!(gcd(6, 9), 3);
+    assert_eq!(gcd(39, 26), 13);
+    assert_eq!(gcd(144, 24), 24);
+    assert_eq!(gcd(5, 7), 1);
+}
