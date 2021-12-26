@@ -1,4 +1,46 @@
 {
+  "10進数から10進数以外への変換": {
+    "prefix": "10進数から10進数以外への変換",
+    "body": [
+      "fn from_decimal(mut num: u64, radix: u64) -> u64 {",
+      "    let mut v = vec![];",
+      "    loop {",
+      "        v.push(num % radix);",
+      "        num /= radix;",
+      "        if num == 0 {",
+      "            break;",
+      "        }",
+      "    }",
+      "    let ans = v",
+      "        .iter()",
+      "        .rev()",
+      "        .map(|x| std::char::from_digit(*x as u32, 10).unwrap())",
+      "        .collect::<String>()",
+      "        .parse::<u64>()",
+      "        .unwrap();",
+      "    ans",
+      "}"
+    ]
+  },
+  "10進数以外から10進数への変換（10進数未満対応）": {
+    "prefix": "10進数以外から10進数への変換（10進数未満対応）",
+    "body": [
+      "fn num_to_vec_of_digit(num: u64) -> Vec<u64> {",
+      "    num.to_string()",
+      "        .chars()",
+      "        .map(|x| x.to_digit(10).unwrap() as u64)",
+      "        .collect::<Vec<u64>>()",
+      "}",
+      "fn to_decimal(num: u64, radix: u64) -> u64 {",
+      "    let vec = num_to_vec_of_digit(num);",
+      "    let mut ans: u64 = 0;",
+      "    for (i, v) in vec.iter().enumerate() {",
+      "        ans += *v as u64 * radix.pow((vec.len() - i - 1) as u32);",
+      "    }",
+      "    ans",
+      "}"
+    ]
+  },
   "GCD-ユークリッドの互除法": {
     "prefix": "GCD-ユークリッドの互除法",
     "body": [
@@ -376,6 +418,29 @@
       "        }",
       "    }",
       "    left",
+      "}"
+    ]
+  },
+  "各桁のVecを合体させて１つの数値にする": {
+    "prefix": "各桁のVecを合体させて１つの数値にする",
+    "body": [
+      "fn vec_of_digit_to_num(vec: Vec<u64>) -> u64 {",
+      "    vec.iter()",
+      "        .map(|x| std::char::from_digit(*x as u32, 10).unwrap())",
+      "        .collect::<String>()",
+      "        .parse::<u64>()",
+      "        .unwrap()",
+      "}"
+    ]
+  },
+  "数値の各桁のVecを作成": {
+    "prefix": "数値の各桁のVecを作成",
+    "body": [
+      "fn num_to_vec_of_digit(num: u64) -> Vec<u64> {",
+      "    num.to_string()",
+      "        .chars()",
+      "        .map(|x| x.to_digit(10).unwrap() as u64)",
+      "        .collect::<Vec<u64>>()",
       "}"
     ]
   },
