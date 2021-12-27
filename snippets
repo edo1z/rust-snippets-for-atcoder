@@ -333,6 +333,24 @@
       "}"
     ]
   },
+  "prime_number-素数判定": {
+    "prefix": "prime_number-素数判定",
+    "body": [
+      "fn is_prime_number(n: usize) -> bool {",
+      "    if n <= 1 {",
+      "        return false;",
+      "    }",
+      "    let mut i = 2;",
+      "    while i * i <= n {",
+      "        if n % i == 0 {",
+      "            return false;",
+      "        }",
+      "        i += 1;",
+      "    }",
+      "    true",
+      "}"
+    ]
+  },
   "sort chars of String": {
     "prefix": "sort chars of String",
     "body": [
@@ -444,21 +462,26 @@
       "}"
     ]
   },
-  "素数判定": {
-    "prefix": "素数判定",
+  "約数列挙": {
+    "prefix": "約数列挙",
     "body": [
-      "fn is_prime_number(n: usize) -> bool {",
-      "    if n <= 1 {",
-      "        return false;",
+      "fn list_factors(n: u64) -> Vec<u64> {",
+      "    if n <= 0 {",
+      "        return vec![];",
       "    }",
-      "    let mut i = 2;",
+      "    let mut ans = vec![];",
+      "    let mut i = 1;",
       "    while i * i <= n {",
       "        if n % i == 0 {",
-      "            return false;",
+      "            ans.push(i);",
+      "            if i != n && i != n / i {",
+      "                ans.push(n / i)",
+      "            }",
       "        }",
       "        i += 1;",
       "    }",
-      "    true",
+      "    ans.sort();",
+      "    ans",
       "}"
     ]
   },

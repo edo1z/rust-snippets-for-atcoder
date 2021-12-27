@@ -51,7 +51,7 @@ fn test_fibo() {
     assert_eq!(fibo(11), 89);
 }
 
-#[snippet("素数判定")]
+#[snippet("prime_number-素数判定")]
 fn is_prime_number(n: usize) -> bool {
     if n <= 1 {
         return false;
@@ -73,6 +73,34 @@ fn test_is_prime_number() {
     assert_eq!(is_prime_number(13), true);
     assert_eq!(is_prime_number(100), false);
     assert_eq!(is_prime_number(169), false);
+}
+
+#[snippet("約数列挙")]
+fn list_factors(n: u64) -> Vec<u64> {
+    if n <= 0 {
+        return vec![];
+    }
+    let mut ans = vec![];
+    let mut i = 1;
+    while i * i <= n {
+        if n % i == 0 {
+            ans.push(i);
+            if i != n && i != n / i {
+                ans.push(n / i)
+            }
+        }
+        i += 1;
+    }
+    ans.sort();
+    ans
+}
+#[test]
+fn test_list_factors() {
+    assert_eq!(list_factors(1), vec![1]);
+    assert_eq!(list_factors(2), vec![1, 2]);
+    assert_eq!(list_factors(5), vec![1, 5]);
+    assert_eq!(list_factors(10), vec![1, 2, 5, 10]);
+    assert_eq!(list_factors(169), vec![1, 13, 169]);
 }
 
 // ユークリッドの互除法
