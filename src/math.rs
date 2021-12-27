@@ -51,6 +51,30 @@ fn test_fibo() {
     assert_eq!(fibo(11), 89);
 }
 
+#[snippet("素数判定")]
+fn is_prime_number(n: usize) -> bool {
+    if n <= 1 {
+        return false;
+    }
+    let mut i = 2;
+    while i * i <= n {
+        if n % i == 0 {
+            return false;
+        }
+        i += 1;
+    }
+    true
+}
+#[test]
+fn test_is_prime_number() {
+    assert_eq!(is_prime_number(0), false);
+    assert_eq!(is_prime_number(1), false);
+    assert_eq!(is_prime_number(2), true);
+    assert_eq!(is_prime_number(13), true);
+    assert_eq!(is_prime_number(100), false);
+    assert_eq!(is_prime_number(169), false);
+}
+
 // ユークリッドの互除法
 #[snippet("GCD-ユークリッドの互除法")]
 fn gcd(m: usize, n: usize) -> usize {
