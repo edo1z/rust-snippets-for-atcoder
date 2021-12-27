@@ -13,4 +13,18 @@ fn test_permutations() {
     assert_eq!(v[0], vec![5, 6]);
     assert_eq!(v[1], vec![5, 7]);
     assert_eq!(v[2], vec![6, 5]);
+    assert_eq!(v.len(), 6);
+}
+
+#[snippet("combinations-組み合わせ")]
+fn combinations(start: usize, end: usize, num: usize) -> Vec<Vec<usize>> {
+    (start..end).combinations(num).collect()
+}
+#[test]
+fn test_combinations() {
+    let v = combinations(5, 8, 2);
+    assert_eq!(v[0], vec![5, 6]);
+    assert_eq!(v[1], vec![5, 7]);
+    assert_eq!(v[2], vec![6, 7]);
+    assert_eq!(v.len(), 3);
 }
