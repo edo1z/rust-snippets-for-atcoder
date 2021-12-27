@@ -75,7 +75,7 @@ fn test_is_prime_number() {
     assert_eq!(is_prime_number(169), false);
 }
 
-#[snippet("約数列挙")]
+#[snippet("list_factors-約数列挙")]
 fn list_factors(n: u64) -> Vec<u64> {
     if n <= 0 {
         return vec![];

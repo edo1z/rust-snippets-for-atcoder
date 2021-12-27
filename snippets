@@ -307,6 +307,29 @@
       "}"
     ]
   },
+  "list_factors-約数列挙": {
+    "prefix": "list_factors-約数列挙",
+    "body": [
+      "fn list_factors(n: u64) -> Vec<u64> {",
+      "    if n <= 0 {",
+      "        return vec![];",
+      "    }",
+      "    let mut ans = vec![];",
+      "    let mut i = 1;",
+      "    while i * i <= n {",
+      "        if n % i == 0 {",
+      "            ans.push(i);",
+      "            if i != n && i != n / i {",
+      "                ans.push(n / i)",
+      "            }",
+      "        }",
+      "        i += 1;",
+      "    }",
+      "    ans.sort();",
+      "    ans",
+      "}"
+    ]
+  },
   "lower_bound - 二分探索": {
     "prefix": "lower_bound - 二分探索",
     "body": [
@@ -459,29 +482,6 @@
       "        .chars()",
       "        .map(|x| x.to_digit(10).unwrap() as u64)",
       "        .collect::<Vec<u64>>()",
-      "}"
-    ]
-  },
-  "約数列挙": {
-    "prefix": "約数列挙",
-    "body": [
-      "fn list_factors(n: u64) -> Vec<u64> {",
-      "    if n <= 0 {",
-      "        return vec![];",
-      "    }",
-      "    let mut ans = vec![];",
-      "    let mut i = 1;",
-      "    while i * i <= n {",
-      "        if n % i == 0 {",
-      "            ans.push(i);",
-      "            if i != n && i != n / i {",
-      "                ans.push(n / i)",
-      "            }",
-      "        }",
-      "        i += 1;",
-      "    }",
-      "    ans.sort();",
-      "    ans",
       "}"
     ]
   },
