@@ -6,6 +6,7 @@ pub mod iter;
 pub mod math;
 pub mod number;
 pub mod permutations;
+pub mod sorts;
 pub mod string;
 pub mod unionfind;
 pub mod utils;
