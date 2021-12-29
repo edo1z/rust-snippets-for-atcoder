@@ -97,3 +97,23 @@ fn test_tuple_combinations() {
     assert_eq!(result[1], (0, 2));
     assert_eq!(result[2], (1, 2));
 }
+
+#[snippet("vec_to_string-vecを区切り文字で区切った1つの文字列にする")]
+fn vec_to_string<T: std::fmt::Display>(v: Vec<T>, s: &str) -> String {
+    v.iter().join(s)
+}
+#[test]
+fn test_vec_to_string() {
+    assert_eq!(
+        vec_to_string(vec![1, 2, 3, 4, 5], ","),
+        String::from("1,2,3,4,5")
+    );
+    assert_eq!(
+        vec_to_string(vec![1, 2, 3, 4, 5], " "),
+        String::from("1 2 3 4 5")
+    );
+    assert_eq!(
+        vec_to_string(vec![1, 2, 3, 4, 5], " -> "),
+        String::from("1 -> 2 -> 3 -> 4 -> 5")
+    );
+}
