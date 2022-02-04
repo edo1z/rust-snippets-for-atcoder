@@ -25,16 +25,21 @@ fn get_input_lines<T: FromStr>(line_len: usize) -> Vec<Vec<T>> {
     vec
 }
 
-#[test]
-fn test_get_input() {
-    // let s: Vec<String> = get_input();
-    // assert_eq!(s, vec!["ho".to_string(), "ge".to_string()]);
-}
+#[cfg(test)]
+mod tests {
+    use super::*;
 
-#[test]
-fn test_get_input_lines() {
-    // let s: Vec<Vec<String>> = get_input_lines(2);
-    // assert_eq!(s, vec![vec!["ho".to_string(), "ge".to_string()], vec!["ab".to_string(), "cd".to_string()]]);
-    // let s: Vec<Vec<usize>> = get_input_lines(2);
-    // assert_eq!(s, vec![vec![1, 2], vec![3, 4]]);
+    #[test]
+    fn test_get_input() {
+        // let s: Vec<String> = get_input();
+        // assert_eq!(s, vec!["ho".to_string(), "ge".to_string()]);
+    }
+
+    #[test]
+    fn test_get_input_lines() {
+        // let s: Vec<Vec<String>> = get_input_lines(2);
+        // assert_eq!(s, vec![vec!["ho".to_string(), "ge".to_string()], vec!["ab".to_string(), "cd".to_string()]]);
+        // let s: Vec<Vec<usize>> = get_input_lines(2);
+        // assert_eq!(s, vec![vec![1, 2], vec![3, 4]]);
+    }
 }

@@ -19,8 +19,13 @@ fn _factorial(n: usize, memo: &mut Vec<usize>) -> usize {
     }
 }
 
-#[test]
-fn test_factorial() {
-    assert_eq!(factorial(5), 120);
-    assert_eq!(factorial(6), 720);
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_factorial() {
+        assert_eq!(factorial(5), 120);
+        assert_eq!(factorial(6), 720);
+    }
 }

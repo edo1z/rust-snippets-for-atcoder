@@ -10,11 +10,17 @@ fn gcd(m: usize, n: usize) -> usize {
         gcd(n, m % n)
     }
 }
-#[test]
-fn test_gcd() {
-    assert_eq!(gcd(9, 6), 3);
-    assert_eq!(gcd(6, 9), 3);
-    assert_eq!(gcd(39, 26), 13);
-    assert_eq!(gcd(144, 24), 24);
-    assert_eq!(gcd(5, 7), 1);
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_gcd() {
+        assert_eq!(gcd(9, 6), 3);
+        assert_eq!(gcd(6, 9), 3);
+        assert_eq!(gcd(39, 26), 13);
+        assert_eq!(gcd(144, 24), 24);
+        assert_eq!(gcd(5, 7), 1);
+    }
 }

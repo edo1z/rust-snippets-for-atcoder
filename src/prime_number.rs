@@ -15,15 +15,6 @@ fn is_prime_number(n: usize) -> bool {
     }
     true
 }
-#[test]
-fn test_is_prime_number() {
-    assert_eq!(is_prime_number(0), false);
-    assert_eq!(is_prime_number(1), false);
-    assert_eq!(is_prime_number(2), true);
-    assert_eq!(is_prime_number(13), true);
-    assert_eq!(is_prime_number(100), false);
-    assert_eq!(is_prime_number(169), false);
-}
 
 #[snippet("list_factors-約数列挙")]
 fn list_factors(n: u64) -> Vec<u64> {
@@ -44,11 +35,26 @@ fn list_factors(n: u64) -> Vec<u64> {
     ans.sort();
     ans
 }
-#[test]
-fn test_list_factors() {
-    assert_eq!(list_factors(1), vec![1]);
-    assert_eq!(list_factors(2), vec![1, 2]);
-    assert_eq!(list_factors(5), vec![1, 5]);
-    assert_eq!(list_factors(10), vec![1, 2, 5, 10]);
-    assert_eq!(list_factors(169), vec![1, 13, 169]);
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_is_prime_number() {
+        assert_eq!(is_prime_number(0), false);
+        assert_eq!(is_prime_number(1), false);
+        assert_eq!(is_prime_number(2), true);
+        assert_eq!(is_prime_number(13), true);
+        assert_eq!(is_prime_number(100), false);
+        assert_eq!(is_prime_number(169), false);
+    }
+    #[test]
+    fn test_list_factors() {
+        assert_eq!(list_factors(1), vec![1]);
+        assert_eq!(list_factors(2), vec![1, 2]);
+        assert_eq!(list_factors(5), vec![1, 5]);
+        assert_eq!(list_factors(10), vec![1, 2, 5, 10]);
+        assert_eq!(list_factors(169), vec![1, 13, 169]);
+    }
 }

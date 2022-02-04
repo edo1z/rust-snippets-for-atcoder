@@ -21,8 +21,14 @@ fn _fibo(n: usize, memo: &mut Vec<usize>) -> usize {
         memo[n]
     }
 }
-#[test]
-fn test_fibo() {
-    assert_eq!(fibo(10), 55);
-    assert_eq!(fibo(11), 89);
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_fibo() {
+        assert_eq!(fibo(10), 55);
+        assert_eq!(fibo(11), 89);
+    }
 }

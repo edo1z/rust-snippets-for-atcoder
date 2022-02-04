@@ -15,10 +15,16 @@ fn full_bit_search(n: u32) -> Vec<String> {
     }
     ans
 }
-#[test]
-fn test_full_bit_search() {
-    let result = full_bit_search(3);
-    assert_eq!(result[0], String::from("000 => xxx"));
-    assert_eq!(result[1], String::from("001 => xxo"));
-    assert_eq!(result[2], String::from("010 => xox"));
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_full_bit_search() {
+        let result = full_bit_search(3);
+        assert_eq!(result[0], String::from("000 => xxx"));
+        assert_eq!(result[1], String::from("001 => xxo"));
+        assert_eq!(result[2], String::from("010 => xox"));
+    }
 }
