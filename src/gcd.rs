@@ -12,14 +12,13 @@ fn gcd(a: usize, b: usize) -> usize {
 }
 
 // 拡張ユークリッドの互除法
+#[snippet("ext_gcd")]
 fn ext_gcd(a: i32, b: i32) -> (i32, i32) {
     if b == 0 {
         (1, 0)
     } else {
-        let q = a / b;
-        let r = a % b;
-        let (s, t) = ext_gcd(b, r);
-        (t, s - q * t)
+        let (s, t) = ext_gcd(b, a % b);
+        (t, s - a / b * t)
     }
 }
 

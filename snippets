@@ -41,18 +41,6 @@
       "}"
     ]
   },
-  "GCD-ユークリッドの互除法": {
-    "prefix": "GCD-ユークリッドの互除法",
-    "body": [
-      "fn gcd(m: usize, n: usize) -> usize {",
-      "    if n == 0 {",
-      "        m",
-      "    } else {",
-      "        gcd(n, m % n)",
-      "    }",
-      "}"
-    ]
-  },
   "UnionFind": {
     "prefix": "UnionFind",
     "body": [
@@ -237,6 +225,19 @@
       "use std::time::Instant;"
     ]
   },
+  "ext_gcd": {
+    "prefix": "ext_gcd",
+    "body": [
+      "fn ext_gcd(a: i32, b: i32) -> (i32, i32) {",
+      "    if b == 0 {",
+      "        (1, 0)",
+      "    } else {",
+      "        let (s, t) = ext_gcd(b, a % b);",
+      "        (t, s - a / b * t)",
+      "    }",
+      "}"
+    ]
+  },
   "factorial - 階乗": {
     "prefix": "factorial - 階乗",
     "body": [
@@ -288,6 +289,18 @@
     "body": [
       "fn from_str_radix(s: &String, digit: u32) -> i64 {",
       "    i64::from_str_radix(s, digit).unwrap()",
+      "}"
+    ]
+  },
+  "gcd": {
+    "prefix": "gcd",
+    "body": [
+      "fn gcd(a: usize, b: usize) -> usize {",
+      "    if b == 0 {",
+      "        a",
+      "    } else {",
+      "        gcd(b, a % b)",
+      "    }",
       "}"
     ]
   },
@@ -446,6 +459,23 @@
       "        i += 1;",
       "    }",
       "    true",
+      "}"
+    ]
+  },
+  "repeated_pow": {
+    "prefix": "repeated_pow",
+    "body": [
+      "pub fn repeated_pow(x: usize, mut n: usize) -> usize {",
+      "    let mut d = x;",
+      "    let mut ans = 1;",
+      "    while n > 0 {",
+      "        if n & 1 == 1 {",
+      "            ans *= d;",
+      "        }",
+      "        n = n >> 1;",
+      "        d *= d;",
+      "    }",
+      "    ans",
       "}"
     ]
   },
