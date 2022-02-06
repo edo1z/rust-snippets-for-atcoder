@@ -2,12 +2,24 @@
 use cargo_snippet::snippet;
 
 // ユークリッドの互除法
-#[snippet("GCD-ユークリッドの互除法")]
-fn gcd(m: usize, n: usize) -> usize {
-    if n == 0 {
-        m
+#[snippet("gcd")]
+fn gcd(a: usize, b: usize) -> usize {
+    if b == 0 {
+        a
     } else {
-        gcd(n, m % n)
+        gcd(b, a % b)
+    }
+}
+
+// 拡張ユークリッドの互除法
+fn ext_gcd(a: i32, b: i32) -> (i32, i32) {
+    if b == 0 {
+        (1, 0)
+    } else {
+        let q = a / b;
+        let r = a % b;
+        let (s, t) = ext_gcd(b, r);
+        (t, s - q * t)
     }
 }
 
@@ -22,5 +34,12 @@ mod tests {
         assert_eq!(gcd(39, 26), 13);
         assert_eq!(gcd(144, 24), 24);
         assert_eq!(gcd(5, 7), 1);
+    }
+
+    #[test]
+    fn test_ext_gcd() {
+        assert_eq!(ext_gcd(111, 30), (3, -11));
+        assert_eq!(ext_gcd(12707, 12319), (32, -33));
+        assert_eq!(ext_gcd(13, 5), (2, -5));
     }
 }
